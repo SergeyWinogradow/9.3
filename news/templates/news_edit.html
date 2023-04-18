@@ -1,0 +1,15 @@
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+<hr>
+<h1>Новая новость</h1>
+<hr>
+<!--<form action="" method="post">-->
+<!-- subscribe button -->
+<form method="post" action="{% url 'subscribe_category' category_id=category.id|default:'1' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Опубликовать" />
+  <input type="submit" value="Подписаться" name="Подписаться" />
+</form>
+{% endblock content %}
